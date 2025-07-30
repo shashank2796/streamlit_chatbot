@@ -1,4 +1,5 @@
-from openai import OpenAI 
+# from openai import OpenAI 
+import openai
 import os
 # os.environ["SSL_CERT_FILE"] = certifi.where()
 # os.environ["SSL_CERT_DIR"] = "C:\Users\A0101150\OneDrive - KION Group\Shashank_Projects\17-KTCI_Chatbot\kion_chatbot\lib\site-packages\certifi\cacert.pem"
@@ -12,13 +13,15 @@ load_dotenv()
 
 # client = OpenAI(api_key=api_key)
 
-api_key = st.secrets["OPENAI_API_KEY"]
-client = OpenAI(api_key=api_key)
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+
+# api_key = st.secrets["OPENAI_API_KEY"]
+# client = OpenAI(api_key=api_key)
 
 def get_answer(messages):
     system_message = [{"role": "system", "content": "You are a helpful AI chatbot that answers questions asked by the User."}]
     messages = system_message + messages
-    response = client.chat.completions.create(
+    response = openai.chat.completions.create(
         model="gpt-3.5-turbo-1106",
         messages=messages
     )
@@ -26,7 +29,7 @@ def get_answer(messages):
 
 def speech_to_text(audio_data):
     with open(audio_data, "rb") as audio_file:
-        transcript = client.audio.transcriptions.create(
+        transcript = openai.audio.transcriptions.create(
             model="whisper-1",
             response_format="text",
             file=audio_file
@@ -34,7 +37,7 @@ def speech_to_text(audio_data):
     return transcript
 
 def text_to_speech(input_text):
-    response = client.audio.speech.create(
+    response = openai.audio.speech.create(
         model="tts-1",
         voice="nova",
         input=input_text
