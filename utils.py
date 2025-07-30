@@ -1,5 +1,7 @@
 # from openai import OpenAI 
 import os
+os.environ.pop("HTTP_PROXY", None)
+os.environ.pop("HTTPS_PROXY", None)
 # Disable proxy variables if they exist
 # os.environ["HTTP_PROXY"] = "http://your.proxy.com:port"
 # os.environ["HTTPS_PROXY"] = "http://your.proxy.com:port"
