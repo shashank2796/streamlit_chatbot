@@ -1,16 +1,9 @@
 # from openai import OpenAI 
-import openai
 import os
-
 # Disable proxy variables if they exist
-os.environ.pop("HTTP_PROXY", None)
-os.environ.pop("HTTPS_PROXY", None)
-os.environ.pop("http_proxy", None)
-os.environ.pop("https_proxy", None)
-# os.environ["SSL_CERT_FILE"] = certifi.where()
-# os.environ["SSL_CERT_DIR"] = "C:\Users\A0101150\OneDrive - KION Group\Shashank_Projects\17-KTCI_Chatbot\kion_chatbot\lib\site-packages\certifi\cacert.pem"
-# os.environ["http_proxy"]  = "http://proxy.company.com:8080"
-# os.environ["https_proxy"] = "http://proxy.company.com:8080"
+os.environ["HTTP_PROXY"] = "http://your.proxy.com:port"
+os.environ["HTTPS_PROXY"] = "http://your.proxy.com:port"
+import openai
 from dotenv import load_dotenv
 import base64
 import streamlit as st
