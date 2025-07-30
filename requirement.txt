@@ -1,5 +1,5 @@
 streamlit
-openai
+openai==1.30.3
 audio_recorder_streamlit
 streamlit-float
 python-dotenv
