@@ -1,8 +1,8 @@
 # from openai import OpenAI 
 import os
 # Disable proxy variables if they exist
-os.environ["HTTP_PROXY"] = "http://your.proxy.com:port"
-os.environ["HTTPS_PROXY"] = "http://your.proxy.com:port"
+# os.environ["HTTP_PROXY"] = "http://your.proxy.com:port"
+# os.environ["HTTPS_PROXY"] = "http://your.proxy.com:port"
 import openai
 from dotenv import load_dotenv
 import base64
